@@ -79,3 +79,32 @@ data class UpdateUserRequest(
     @SerializedName("nacionalidad")
     val nacionalidad: String? = null
 )
+
+/**
+ * Body para crear el perfil de un usuario recién registrado (POST /api/users)
+ */
+data class CreateUserRequest(
+    @SerializedName("uid")
+    val uid: String,
+
+    @SerializedName("email")
+    val email: String,
+
+    @SerializedName("correo")
+    val correo: String,
+
+    @SerializedName("nombre")
+    val nombre: String,
+
+    @SerializedName("apellido")
+    val apellido: String,
+
+    @SerializedName("telefono")
+    val telefono: String? = null,
+
+    @SerializedName("nacionalidad")
+    val nacionalidad: String? = null,
+
+    @SerializedName("fechaNacimiento")
+    val fechaNacimiento: String? = null
+)

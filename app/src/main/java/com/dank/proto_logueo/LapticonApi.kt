@@ -13,6 +13,16 @@ interface LapticonApi {
 
     // --- USUARIOS ---
 
+    /**
+     * Crea el perfil del usuario en el backend justo después del registro en Firebase.
+     * NOTA: ajusta la ruta aquí si tu backend usa otra (p. ej. "api/users/register").
+     */
+    @POST("api/users")
+    suspend fun createUserProfile(
+        @Header("Authorization") authHeader: String,
+        @Body request: CreateUserRequest
+    ): Response<UserProfileResponse>
+
     @GET("api/users/{uid}")
     suspend fun getUserProfile(
         @Path("uid") uid: String,

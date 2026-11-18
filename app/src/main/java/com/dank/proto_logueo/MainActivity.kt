@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.dank.proto_logueo.databinding.ActivityMainBinding
@@ -29,16 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRegisterPlaceholder.setOnClickListener {
-            showRegisterPlaceholderDialog()
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
-    }
-
-    private fun showRegisterPlaceholderDialog() {
-        AlertDialog.Builder(this)
-            .setTitle("Registro de Usuarios")
-            .setMessage("⚠️ El registro de nuevos usuarios no está disponible actualmente por mantenimiento en el backend.\n\nPor favor utiliza las credenciales de prueba proporcionadas para iniciar sesión.")
-            .setPositiveButton("Entendido", null)
-            .show()
     }
 
     private fun performLogin() {

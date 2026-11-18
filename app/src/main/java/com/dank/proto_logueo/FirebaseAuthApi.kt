@@ -14,4 +14,12 @@ interface FirebaseAuthApi {
         @Query("key") apiKey: String,
         @Body request: AuthRequest
     ): Response<AuthResponse>
+
+    /** Crea una cuenta nueva en Firebase (el body es el mismo que el del login). */
+    @Headers("Content-Type: application/json")
+    @POST("v1/accounts:signUp")
+    suspend fun signUp(
+        @Query("key") apiKey: String,
+        @Body request: AuthRequest
+    ): Response<AuthResponse>
 }

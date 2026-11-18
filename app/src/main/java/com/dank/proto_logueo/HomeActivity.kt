@@ -546,7 +546,7 @@ class HomeActivity : AppCompatActivity() {
             val btnCambiarEstado = com.google.android.material.button.MaterialButton(this).apply {
                 text = "⚙️ Cambiar Estado"
                 textSize = 11f
-                setTextColor(Color.parseColor("#1E88E5"))
+                setTextColor(Color.parseColor("#1565C0"))
                 setBackgroundColor(Color.TRANSPARENT)
                 setOnClickListener {
                     showActualizarEstadoEncomiendaDialog(encomienda.id, tabBinding)

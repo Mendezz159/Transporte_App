@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Lapticon.TextInputDark" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/input_hint_dark</item>
+        <item name="hintTextColor">@color/input_text_focus_dark</item>
+        <item name="boxStrokeColor">@color/input_stroke_dark</item>
+        <item name="boxStrokeErrorColor">@color/input_error_dark</item>
+        <item name="errorTextColor">@color/input_error_dark</item>
+        <item name="errorIconTint">@color/input_error_dark</item>
+        <item name="endIconTint">@color/input_icon_dark</item>
+        <item name="cursorColor">@color/input_text_focus_dark</item>
+        <item name="helperTextTextColor">@color/input_hint_dark</item>
+    </style>
+</resources>
