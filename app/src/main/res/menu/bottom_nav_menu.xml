@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_viajes"
+        android:icon="@drawable/ic_nav_rides"
+        android:title="Viajes" />
+    <item
+        android:id="@+id/nav_encomiendas"
+        android:icon="@drawable/ic_nav_packages"
+        android:title="Encomiendas" />
+    <item
+        android:id="@+id/nav_perfil"
+        android:icon="@drawable/ic_nav_profile"
+        android:title="Perfil" />
+</menu>

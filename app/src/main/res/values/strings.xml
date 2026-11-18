@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Firebase Auth Tester</string>
+    <string name="title_login">Iniciar Sesión (Firebase)</string>
+    <string name="subtitle_login">Simulación de login consumiendo Identity Toolkit API</string>
+    <string name="label_api_key">Firebase API Key</string>
+    <string name="hint_api_key">Ingresa tu Web API Key de Firebase</string>
+    <string name="label_email">Correo electrónico</string>
+    <string name="hint_email">ejemplo@correo.com</string>
+    <string name="label_password">Contraseña</string>
+    <string name="hint_password">••••••••</string>
+    <string name="btn_login">Iniciar Sesión</string>
+    <string name="title_result">Resultado de Autenticación</string>
+    <string name="title_success">Inicio de sesión exitoso</string>
+    <string name="title_error">Error de Autenticación</string>
+    <string name="status_200_ok">200 OK</string>
+    <string name="label_local_id">UID / Local ID:</string>
+    <string name="label_response_email">Email:</string>
+    <string name="label_id_token">ID Token (JWT):</string>
+    <string name="label_refresh_token">Refresh Token:</string>
+    <string name="label_expires_in">Expira en (segundos):</string>
+    <string name="btn_copy_token">Copiar ID Token</string>
+    <string name="msg_token_copied">ID Token copiado al portapapeles</string>
+    <string name="error_empty_api_key">Debes ingresar la Firebase API Key</string>
+    <string name="error_empty_email">Ingresa un correo válido</string>
+    <string name="error_empty_password">Ingresa tu contraseña</string>
+    <string name="label_raw_json">Respuesta JSON Completa</string>
+</resources>
