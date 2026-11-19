@@ -69,7 +69,8 @@ class ProfileActivity : AppCompatActivity() {
                         }
                     } else {
                         val errorBody = response.errorBody()?.string().orEmpty()
-                        showErrorState("Error del servidor (${response.code()}): $errorBody")
+                        val fullDetail = if (errorBody.isNotBlank()) errorBody else "Sin detalle en el cuerpo de la respuesta."
+                        showErrorState("Error del servidor (${response.code()}):\n\n$fullDetail")
                     }
                 }
             } catch (e: Exception) {

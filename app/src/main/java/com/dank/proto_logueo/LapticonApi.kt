@@ -4,6 +4,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -14,10 +15,10 @@ interface LapticonApi {
     // --- USUARIOS ---
 
     /**
-     * Crea el perfil del usuario en el backend justo después del registro en Firebase.
-     * NOTA: ajusta la ruta aquí si tu backend usa otra (p. ej. "api/users/register").
+     * Crea/Registra el perfil del usuario en el backend de Lapticon (POST /api/users/register)
      */
-    @POST("api/users")
+    @Headers("Content-Type: application/json")
+    @POST("api/users/register")
     suspend fun createUserProfile(
         @Header("Authorization") authHeader: String,
         @Body request: CreateUserRequest
@@ -29,6 +30,7 @@ interface LapticonApi {
         @Header("Authorization") authHeader: String
     ): Response<UserProfileResponse>
 
+    @Headers("Content-Type: application/json")
     @PUT("api/users/{uid}")
     suspend fun updateUserProfile(
         @Path("uid") uid: String,
@@ -39,6 +41,7 @@ interface LapticonApi {
 
     // --- VIAJES ---
 
+    @Headers("Content-Type: application/json")
     @POST("api/viajes")
     suspend fun createViaje(
         @Header("Authorization") authHeader: String,
@@ -64,6 +67,7 @@ interface LapticonApi {
 
     // --- ENCOMIENDAS ---
 
+    @Headers("Content-Type: application/json")
     @POST("api/encomiendas")
     suspend fun createEncomienda(
         @Header("Authorization") authHeader: String,
@@ -82,6 +86,7 @@ interface LapticonApi {
         @Query("destino") destino: String
     ): Response<List<Encomienda>>
 
+    @Headers("Content-Type: application/json")
     @PUT("api/encomiendas/{id}/estado")
     suspend fun updateEstadoEncomienda(
         @Path("id") id: String,
@@ -92,6 +97,7 @@ interface LapticonApi {
 
     // --- RATINGS ---
 
+    @Headers("Content-Type: application/json")
     @POST("api/ratings")
     suspend fun createRating(
         @Header("Authorization") authHeader: String,
