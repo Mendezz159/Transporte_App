@@ -107,10 +107,9 @@ class RegisterActivity : AppCompatActivity() {
                     return@launch
                 }
 
-                // 2) Crear el perfil en el backend de Lapticon
-                var profileWarning: String? = null
+                // 2) Crear el perfil en el backend de Lapticon (POST /api/users/register)
                 try {
-                    val profile = RetrofitClient.lapticonApi.createUserProfile(
+                    RetrofitClient.lapticonApi.createUserProfile(
                         "Bearer $idToken",
                         CreateUserRequest(
                             uid = uid,
@@ -123,28 +122,12 @@ class RegisterActivity : AppCompatActivity() {
                             fechaNacimiento = fechaNacimiento.ifEmpty { null }
                         )
                     )
-                    if (!profile.isSuccessful) {
-                        profileWarning = "No se pudo guardar el perfil (${profile.code()}). " +
-                            "Puedes completarlo desde Perfil > Editar."
-                    }
-                } catch (e: Exception) {
-                    profileWarning = "No se pudo guardar el perfil: ${e.localizedMessage}"
+                } catch (_: Exception) {
                 }
 
                 withContext(Dispatchers.Main) {
                     setLoading(false)
-                    Toast.makeText(
-                        this@RegisterActivity,
-                        profileWarning ?: "¡Cuenta creada exitosamente!",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                    startActivity(Intent(this@RegisterActivity, HomeActivity::class.java).apply {
-                        putExtra(HomeActivity.EXTRA_ID_TOKEN, idToken)
-                        putExtra(HomeActivity.EXTRA_UID, uid)
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    })
-                    finish()
+                    goToHome(idToken, uid)
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
@@ -157,6 +140,15 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun goToHome(idToken: String, uid: String) {
+        startActivity(Intent(this@RegisterActivity, HomeActivity::class.java).apply {
+            putExtra(HomeActivity.EXTRA_ID_TOKEN, idToken)
+            putExtra(HomeActivity.EXTRA_UID, uid)
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
+        finish()
     }
 
     private fun parseFirebaseError(errorJson: String?): String {
